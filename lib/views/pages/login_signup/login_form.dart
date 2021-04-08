@@ -172,7 +172,6 @@ class LoginFormState extends State<LoginForm> {
                   obscureText: _obscureText,
                   textAlign: TextAlign.left,
                   controller: _passwordController,
-                  //validator: Validator.validatePassword,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
