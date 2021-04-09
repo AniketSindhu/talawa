@@ -15,11 +15,14 @@ import 'controllers/auth_controller.dart';
 import 'controllers/org_controller.dart';
 import 'views/pages/organization/create_organization.dart';
 import 'views/pages/organization/switch_org_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 Preferences preferences = Preferences();
 String userID;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); //ensuring weather the app is being initialized or not
+  //await EasyLocalization.ensureInitialized();
   userID = await preferences.getUserId(); //getting user id
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])  //setting the orientation according to the screen it is running on
       .then((_) {
@@ -31,7 +34,11 @@ Future<void> main() async {
         ChangeNotifierProvider<AuthController>(create: (_) => AuthController()),
         ChangeNotifierProvider<Preferences>(create: (_) => Preferences()),
       ],
-      child: MyApp(),
+      child: EasyLocalization(
+        supportedLocales: [Locale('en','US'),Locale('hi','IN')],
+        path: 'assets/translations',
+        fallbackLocale: Locale('en','US'),
+        child: MyApp()),
     ));
   });
 }
@@ -50,6 +57,9 @@ class MyApp extends StatelessWidget {
         }
       },
       child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         title: UIData.appName,
         theme: ThemeData(
             primaryColor: UIData.primaryColor,

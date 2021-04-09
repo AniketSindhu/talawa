@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:talawa/services/preferences.dart';
@@ -6,6 +8,8 @@ import 'package:talawa/utils/validator.dart';
 import 'package:http/http.dart' as http;
 import 'package:talawa/views/pages/login_signup/login_page.dart';
 import 'package:talawa/views/pages/login_signup/register_page.dart';
+import 'package:talawa/views/widgets/language_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class UrlPage extends StatefulWidget {
   @override
@@ -28,7 +32,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
   String dropdownValue = 'HTTP';
   Preferences _pref = Preferences();
   String orgUrl, orgImgUrl;
-  String saveMsg = "Set URL";
+  String saveMsg = "set_url".tr();
   String urlInput;
   FToast fToast;
   bool isUrlCalled = false;
@@ -47,7 +51,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
   listenToUrl() {
     if (saveMsg == "URL SAVED!" && urlController.text != urlInput) {
       setState(() {
-        saveMsg = "Set URL";
+        saveMsg = "set_url".tr();
       });
     }
     urlInput = urlController.text;
@@ -64,7 +68,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
       setApiUrl();
       _setURL();
     } catch (e) {
-      _exceptionToast('Incorrect Organization Entered');
+      _exceptionToast('incorrect_org'.tr());
     }
 
     setState(() {
@@ -186,7 +190,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
             opacity: animation,
             child: Container(
               //padding: EdgeInsets.all(100.0),
-              padding: EdgeInsets.symmetric(vertical: 50.0),
+              padding: EdgeInsets.symmetric(vertical: 25.0),
               child: Center(child: Image(image: AssetImage(UIData.talawaLogo))),
             ),
           ),
@@ -269,7 +273,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                                 onChanged: (String newValue) {
                                   setState(() {
                                     dropdownValue = newValue;
-                                    saveMsg = 'Set URL';
+                                    saveMsg = 'set_url'.tr();
                                   });
                                 },
                                 items: <String>[
@@ -310,7 +314,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                                         ),
                                         prefixIcon: Icon(Icons.web,
                                             color: Colors.white),
-                                        labelText: "Type Org URL Here",
+                                        labelText: "type_org_url".tr(),
                                         labelStyle:
                                             TextStyle(color: Colors.white),
                                         alignLabelWithHint: true,
@@ -413,7 +417,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                                   children: <Widget>[
                                     new Expanded(
                                       child: Text(
-                                        "Create an Account",
+                                        "create_acc".tr(),
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           //color: UIData.quitoThemeColor,
@@ -480,7 +484,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                                   children: <Widget>[
                                     new Expanded(
                                       child: Text(
-                                        "Login",
+                                        "login".tr(),
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           //color: UIData.quitoThemeColor,
@@ -500,6 +504,18 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                     ),
                   ),
                 ),
+                SizedBox(height:20),
+                Center(
+                  child: InkWell(
+                    onTap: (){
+                      showDialog(context: context, builder: (context){
+                        return LanguageDialog();
+                      });
+                    },
+                    child: Text('change_language'.tr(),style:TextStyle(fontSize:14,color: UIData.secondaryColor,decoration:TextDecoration.underline),
+                    )
+                  ),
+                )
               ],
             ),
           ),
