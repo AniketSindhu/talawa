@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/views/pages/login_signup/login_page.dart';
 import 'package:talawa/views/pages/login_signup/register_form.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _RegisterePageState extends State<RegisterPage>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Already have an account?",
+                          "already_acc".tr(),
                           style: TextStyle(color: Colors.white),
                         ),
                         Container(
@@ -42,7 +43,7 @@ class _RegisterePageState extends State<RegisterPage>
                                       builder: (context) => LoginPage()));
                             },
                             child: Text(
-                              "SIGN IN!",
+                              "sign_in".tr(),
                               textAlign: TextAlign.start,
                               style: TextStyle(color: UIData.primaryColor),
                             ),

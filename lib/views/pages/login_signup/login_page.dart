@@ -10,6 +10,7 @@ import 'package:talawa/utils/validator.dart';
 import 'package:talawa/views/pages/login_signup/login_form.dart';
 import 'package:talawa/views/pages/login_signup/register_form.dart';
 import 'package:talawa/views/pages/login_signup/register_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -45,11 +46,11 @@ class _LoginScreenState extends State<LoginPage> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Text(
-                          "Dont have an account?",
+                          "dont_acc",
                           style: const TextStyle(
                             color: Colors.white,
                           ),
-                        ),
+                        ).tr(),
                         Container(
                           margin: const EdgeInsets.only(left: 8.0),
                           child: GestureDetector(
@@ -61,11 +62,11 @@ class _LoginScreenState extends State<LoginPage> with TickerProviderStateMixin {
                                       builder: (context) => RegisterPage()));
                             },
                             child: const Text(
-                              "SIGN UP!",
+                              "sign_up",
                               textAlign: TextAlign.start,
                               style:
                                   const TextStyle(color: UIData.primaryColor),
-                            ),
+                            ).tr(),
                           ),
                         ),
                       ],

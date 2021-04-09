@@ -1,6 +1,6 @@
 //flutter packages are called here
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //imported the pages here
 import 'package:talawa/services/Queries.dart';
 import 'package:talawa/services/preferences.dart';
@@ -58,7 +58,7 @@ class _RegListState extends State<RegList> {
                   "No Registrants found",
                   style: TextStyle(fontSize: 20),
                   textAlign: TextAlign.center,
-                )),
+                ).tr()),
               );
             } else {
               return SingleChildScrollView(

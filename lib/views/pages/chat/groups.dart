@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:talawa/utils/uidata.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:talawa/views/pages/chat/chat.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Groups extends StatefulWidget {
   Groups({Key key}) : super(key: key);
@@ -20,14 +21,14 @@ class _GroupsState extends State<Groups> {
       appBar: AppBar(
         key: Key('GROUPS_APP_BAR'),
         title: Text(
-          'Chats',
+          'chats',
           style: TextStyle(color: Colors.white),
-        ),
+        ).tr(),
       ),
       body: ListView.builder(
           itemCount: 4,
           itemBuilder: (context, index) {
-            String groupName = 'Event ${index + 1}';
+            String groupName = 'grp_name'.tr(args: ['${index + 1}']);
             return Card(
               child: ListTile(
                 title: Text(groupName),

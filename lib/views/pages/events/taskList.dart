@@ -1,6 +1,6 @@
 //flutter packages are imported here
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:talawa/services/Queries.dart';
 import 'package:talawa/services/preferences.dart';
@@ -59,7 +59,7 @@ class _TaskListState extends State<TaskList> {
                   "No Tasks found",
                   style: TextStyle(fontSize: 20),
                   textAlign: TextAlign.center,
-                )),
+                ).tr()),
               );
             } else {
               return SingleChildScrollView(

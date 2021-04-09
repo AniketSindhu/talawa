@@ -9,6 +9,7 @@ import 'package:talawa/utils/apiFuctions.dart';
 import 'package:talawa/utils/uidata.dart';
 import 'package:intl/intl.dart';
 import 'package:talawa/views/pages/events/events.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class AddEvent extends StatefulWidget {
   AddEvent({Key key}) : super(key: key);
@@ -133,9 +134,9 @@ class _AddEventState extends State<AddEvent> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'New Event',
+          'new_event',
           style: TextStyle(color: Colors.white),
-        ),
+        ).tr(),
       ),
       body: ListView(
         padding: EdgeInsets.only(bottom: 100),
@@ -164,9 +165,9 @@ class _AddEventState extends State<AddEvent> {
         _selectDate(context);
       },
       leading: Text(
-        'Date',
+        'date',
         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-      ),
+      ).tr(),
       trailing: Text(
         '${DateFormat.yMMMd().format(dateRange.start)} | ${DateFormat.yMMMd().format(dateRange.end)} ',
         style: TextStyle(fontSize: 16, color: UIData.secondaryColor),
@@ -205,26 +206,32 @@ class _AddEventState extends State<AddEvent> {
           color: Colors.white,
         ),
         onPressed: () {
-          if(titleController.text.isEmpty || descriptionController.text.isEmpty || locationController.text.isEmpty){
-            if (titleController.text.isEmpty){
+          if (titleController.text.isEmpty ||
+              descriptionController.text.isEmpty ||
+              locationController.text.isEmpty) {
+            if (titleController.text.isEmpty) {
               setState(() {
                 _validateTitle = true;
               });
             }
-            if(descriptionController.text.isEmpty){
+            if (descriptionController.text.isEmpty) {
               setState(() {
                 _validateDescription = true;
               });
             }
-            if(locationController.text.isEmpty){
+            if (locationController.text.isEmpty) {
               setState(() {
                 _validateLocation = true;
               });
             }
-            Fluttertoast.showToast(msg: 'Fill in the empty fields', backgroundColor: Colors.grey[500]);
-          }else {
+            Fluttertoast.showToast(
+                msg: 'fill_all'.tr(), backgroundColor: Colors.grey[500]);
+          } else {
             createEvent();
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Events()), (route) => false);
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => Events()),
+                (route) => false);
           }
         });
   }
@@ -238,21 +245,21 @@ class _AddEventState extends State<AddEvent> {
           decoration: InputDecoration(
               errorText: name == 'Title'
                   ? _validateTitle
-                      ? 'Field Can\'t Be Empty'
+                      ? 'cant_empty'.tr()
                       : null
                   : name == 'Description'
                       ? _validateDescription
-                          ? 'Field Can\'t Be Empty'
+                          ? 'cant_empty'.tr()
                           : null
                       : name == 'Location'
                           ? _validateLocation
-                              ? 'Field Can\'t Be Empty'
+                              ? 'cant_empty'.tr()
                               : null
                           : null,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),
                   borderSide: BorderSide(color: Colors.teal)),
-              hintText: name),
+              hintText: name.tr()),
         ));
   }
 
@@ -262,7 +269,7 @@ class _AddEventState extends State<AddEvent> {
         value: switchVals[name],
         contentPadding: EdgeInsets.symmetric(horizontal: 20),
         title: Text(
-          name,
+          name.tr(),
           style: TextStyle(color: Colors.grey[600]),
         ),
         onChanged: (val) {
@@ -276,9 +283,9 @@ class _AddEventState extends State<AddEvent> {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 20),
       leading: Text(
-        'Recurrence',
+        'recurrence',
         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-      ),
+      ).tr(),
       trailing: AbsorbPointer(
         absorbing: !switchVals['Recurring'],
         child: DropdownButton<String>(
@@ -296,7 +303,7 @@ class _AddEventState extends State<AddEvent> {
           items: recurranceList.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
-              child: Text(value),
+              child: Text(value).tr(),
             );
           }).toList(),
         ),

@@ -1,7 +1,7 @@
 //flutter packages are called here
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/views/pages/events/registrantList.dart';
@@ -54,19 +54,28 @@ class _EventDetailState extends State<EventDetail>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       displayText(
-                        "To Do: ${widget.event['description'].toString()}",
+                        "todo".tr(args: [
+                          '${widget.event['description'].toString()}'
+                        ]),
                       ),
                       displayText(
-                        "Held: ${widget.event['recurrance'][0]}${widget.event['recurrance'].substring(1).toLowerCase()}",
+                        "held".tr(args: [
+                          '${widget.event['recurrance'][0]}${widget.event['recurrance'].substring(1).toLowerCase()}'
+                        ]),
                       ),
                       displayText(
-                        "Next: ${DateFormat.yMMMd('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['startTime']))).toString()}",
+                        "next".tr(args: [
+                          '${DateFormat.yMMMd('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['startTime']))).toString()}'
+                        ]),
                       ),
                       displayText(
-                        "Where: ${widget.event['location'].toString()}",
+                        "where".tr(
+                            args: ['${widget.event['location'].toString()}']),
                       ),
                       displayText(
-                        "From: ${DateFormat.jm('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['startTime']))).toString() + ' to ' + DateFormat.jm('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['endTime']))).toString()}",
+                        "from".tr(args: [
+                          '${DateFormat.jm('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['startTime']))).toString() + ' to ' + DateFormat.jm('en_US').format(DateTime.fromMicrosecondsSinceEpoch(int.parse(widget.event['endTime']))).toString()}'
+                        ]),
                       ),
                     ],
                   ),
@@ -93,13 +102,13 @@ class _EventDetailState extends State<EventDetail>
                           style: TextStyle(
                             color: Colors.white,
                           ),
-                        ),
+                        ).tr(),
                       ),
                       Tab(
                         icon: Text(
                           'Registrants',
                           style: TextStyle(color: Colors.white),
-                        ),
+                        ).tr(),
                       ),
                     ],
                   ),

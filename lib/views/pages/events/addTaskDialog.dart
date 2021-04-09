@@ -1,7 +1,6 @@
-
 //flutter packages are called here
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:talawa/services/Queries.dart';
 import 'package:talawa/utils/apiFuctions.dart';
@@ -23,7 +22,6 @@ class _AddEventTaskState extends State<AddEventTask> {
   ApiFunctions apiFunctions = ApiFunctions();
   DateTime selectedDate = DateTime.now();
 
-
   //function to add the task
   Future<void> addTask() async {
     String mutation = Queries().addEventTask(
@@ -33,7 +31,6 @@ class _AddEventTaskState extends State<AddEventTask> {
         deadline: DateTime.now().millisecondsSinceEpoch.toString());
     Map result = await apiFunctions.gqlquery(mutation);
   }
-
 
   //function to select the date
   Future<void> _selectDate(BuildContext context) async {
@@ -48,13 +45,12 @@ class _AddEventTaskState extends State<AddEventTask> {
       });
   }
 
-
   //main build starts here
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       insetPadding: EdgeInsets.all(0),
-      title: Text("Add A Task To This Event"),
+      title: Text("add_task").tr(),
       content: Container(
           height: 250,
           child: Column(
@@ -66,13 +62,13 @@ class _AddEventTaskState extends State<AddEventTask> {
           )),
       actions: <Widget>[
         FlatButton(
-          child: Text("Cancel"),
+          child: Text("cancel").tr(),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         FlatButton(
-          child: Text("Add"),
+          child: Text("add").tr(),
           onPressed: () {
             addTask();
             Navigator.of(context).pop();
@@ -82,7 +78,6 @@ class _AddEventTaskState extends State<AddEventTask> {
     );
   }
 
-
   //widget to use date button
   Widget dateButton() {
     return ListTile(
@@ -90,9 +85,9 @@ class _AddEventTaskState extends State<AddEventTask> {
         _selectDate(context);
       },
       leading: Text(
-        'Date',
+        'date',
         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-      ),
+      ).tr(),
       trailing: Text(
         '${DateFormat.yMMMd().format(selectedDate)}',
         style: TextStyle(fontSize: 16, color: UIData.secondaryColor),
@@ -100,19 +95,18 @@ class _AddEventTaskState extends State<AddEventTask> {
     );
   }
 
-
   //widget to use input field
   Widget inputField(String name, TextEditingController controller) {
     return Padding(
         padding: EdgeInsets.all(10),
         child: TextField(
-          maxLines: name == 'Description' ? null : 1,
+          maxLines: name.tr() == 'description'.tr() ? null : 1,
           controller: controller,
           decoration: InputDecoration(
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),
                   borderSide: BorderSide(color: Colors.teal)),
-              hintText: name),
+              hintText: name.tr()),
         ));
   }
 }

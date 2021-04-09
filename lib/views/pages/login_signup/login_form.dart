@@ -15,7 +15,7 @@ import 'package:talawa/view_models/vm_login.dart';
 import 'package:talawa/model/token.dart';
 import 'package:talawa/views/pages/home_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import '../_pages.dart';
 
 class LoginForm extends StatefulWidget {
@@ -64,8 +64,7 @@ class LoginFormState extends State<LoginForm> {
       setState(() {
         _progressBarState = false;
       });
-      _exceptionToast(
-          'Connection Error. Make sure your Internet connection is stable');
+      _exceptionToast('conntection_error'.tr());
     } else if (result.hasException) {
       print(result.exception);
       setState(() {
@@ -125,7 +124,8 @@ class LoginFormState extends State<LoginForm> {
         key: _formKey,
         child: Column(
           children: <Widget>[
-            Text('Login', style: TextStyle(fontSize: 35, color: Colors.white)),
+            Text('login', style: TextStyle(fontSize: 35, color: Colors.white))
+                .tr(),
             SizedBox(
               height: 50,
             ),
@@ -154,7 +154,7 @@ class LoginFormState extends State<LoginForm> {
                       Icons.email,
                       color: Colors.white,
                     ),
-                    labelText: "Email",
+                    labelText: "email".tr(),
                     labelStyle: TextStyle(color: Colors.white),
                     alignLabelWithHint: true,
                     hintText: 'foo@bar.com',
@@ -193,7 +193,7 @@ class LoginFormState extends State<LoginForm> {
                         color: Colors.white,
                       ),
                     ),
-                    labelText: "Password",
+                    labelText: "password".tr(),
                     labelStyle: TextStyle(color: Colors.white),
                     focusColor: UIData.primaryColor,
                     alignLabelWithHint: true,
@@ -218,7 +218,7 @@ class LoginFormState extends State<LoginForm> {
                   child: _progressBarState
                       ? const CircularProgressIndicator()
                       : Text(
-                          "SIGN IN",
+                          "sign_in".tr(),
                         ),
                   color: Colors.white,
                   onPressed: () async {

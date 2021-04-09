@@ -1,7 +1,6 @@
-
 //flutter packages are called here
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:talawa/services/preferences.dart';
 import 'package:talawa/utils/uidata.dart';
@@ -68,7 +67,6 @@ class _EditEventState extends State<EditEvent> {
     });
   }
 
-
   //getting current organization id
   getCurrentOrgId() async {
     final orgId = await preferences.getCurrentOrgId();
@@ -77,7 +75,6 @@ class _EditEventState extends State<EditEvent> {
     });
     print(currentOrgId);
   }
-
 
   //method called to select the date
   Future<void> _selectDate(BuildContext context) async {
@@ -92,7 +89,6 @@ class _EditEventState extends State<EditEvent> {
         dateRange = picked;
       });
   }
-
 
   //method to select the time
   Future<void> _selectTime(
@@ -111,7 +107,6 @@ class _EditEventState extends State<EditEvent> {
             picked.minute);
       });
   }
-
 
   //method used to create and event
   Future<void> createEvent() async {
@@ -145,9 +140,9 @@ class _EditEventState extends State<EditEvent> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Edit Event',
+          'edit_event',
           style: TextStyle(color: Colors.white),
-        ),
+        ).tr(),
       ),
       body: ListView(
         padding: EdgeInsets.only(bottom: 100),
@@ -169,7 +164,6 @@ class _EditEventState extends State<EditEvent> {
     );
   }
 
-
   //widget for the date buttons
   Widget dateButton() {
     return ListTile(
@@ -177,16 +171,15 @@ class _EditEventState extends State<EditEvent> {
         _selectDate(context);
       },
       leading: Text(
-        'Date',
+        'date',
         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-      ),
+      ).tr(),
       trailing: Text(
         '${DateFormat.yMMMd().format(dateRange.start)} | ${DateFormat.yMMMd().format(dateRange.end)} ',
         style: TextStyle(fontSize: 16, color: UIData.secondaryColor),
       ),
     );
   }
-
 
   //widget for time buttons
   Widget timeButton(String name, DateTime time) {
@@ -199,7 +192,7 @@ class _EditEventState extends State<EditEvent> {
           leading: Text(
             name,
             style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-          ),
+          ).tr(),
           trailing: Text(
             TimeOfDay.fromDateTime(time).format(context),
             style: TextStyle(
@@ -209,7 +202,6 @@ class _EditEventState extends State<EditEvent> {
           ),
         ));
   }
-
 
   //widget for the input field
   Widget inputField(String name, TextEditingController controller) {
@@ -222,7 +214,7 @@ class _EditEventState extends State<EditEvent> {
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),
                   borderSide: BorderSide(color: Colors.teal)),
-              hintText: name),
+              hintText: name.tr()),
         ));
   }
 
@@ -234,7 +226,7 @@ class _EditEventState extends State<EditEvent> {
         title: Text(
           name,
           style: TextStyle(color: Colors.grey[600]),
-        ),
+        ).tr(),
         onChanged: (val) {
           setState(() {
             switchVals[name] = val;
@@ -246,9 +238,9 @@ class _EditEventState extends State<EditEvent> {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 20),
       leading: Text(
-        'Recurrence',
+        'recurrence',
         style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-      ),
+      ).tr(),
       trailing: AbsorbPointer(
         absorbing: !switchVals['Recurring'],
         child: DropdownButton<String>(
@@ -266,14 +258,13 @@ class _EditEventState extends State<EditEvent> {
           items: recurranceList.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
-              child: Text(value),
+              child: Text(value).tr(),
             );
           }).toList(),
         ),
       ),
     );
   }
-
 
   //widget to add the event
   Widget addEventFab() {

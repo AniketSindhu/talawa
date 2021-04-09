@@ -17,7 +17,7 @@ import 'package:talawa/model/token.dart';
 import 'package:talawa/views/pages/organization/join_organization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql/utilities.dart' show multipartFileFrom;
-
+import 'package:easy_localization/easy_localization.dart';
 //pubspec packages are called here
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
@@ -37,8 +37,10 @@ class RegisterFormState extends State<RegisterForm> {
   TextEditingController _firstNameController = new TextEditingController();
   TextEditingController _lastNameController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
-  TextEditingController _originalPasswordController = new TextEditingController();
-  TextEditingController _confirmPasswordController = new TextEditingController();
+  TextEditingController _originalPasswordController =
+      new TextEditingController();
+  TextEditingController _confirmPasswordController =
+      new TextEditingController();
   FocusNode confirmPassField = FocusNode();
   RegisterViewModel model = new RegisterViewModel();
   bool _progressBarState = false;
@@ -99,7 +101,12 @@ class RegisterFormState extends State<RegisterForm> {
       final String currentUserId = result.data['signUp']['user']['_id'];
       await _pref.saveUserId(currentUserId);
       //Navigate user to join organization screen
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>JoinOrganization(fromProfile: false,)), (route) => false);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+              builder: (context) => JoinOrganization(
+                    fromProfile: false,
+                  )),
+          (route) => false);
     }
   }
 
@@ -134,7 +141,12 @@ class RegisterFormState extends State<RegisterForm> {
       final String currentUserId = result.data['signUp']['user']['_id'];
       await _pref.saveUserId(currentUserId);
 
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>JoinOrganization(fromProfile: false,)), (route) => false);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+              builder: (context) => JoinOrganization(
+                    fromProfile: false,
+                  )),
+          (route) => false);
     }
   }
 
@@ -167,8 +179,9 @@ class RegisterFormState extends State<RegisterForm> {
                 addImage(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('Add Profile Image',
-                      style: TextStyle(fontSize: 16, color: Colors.white)),
+                  child: Text('add_profile_pic',
+                          style: TextStyle(fontSize: 16, color: Colors.white))
+                      .tr(),
                 ),
                 SizedBox(
                   height: 25,
@@ -195,7 +208,7 @@ class RegisterFormState extends State<RegisterForm> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           prefixIcon: Icon(Icons.person, color: Colors.white),
-                          labelText: "First Name",
+                          labelText: "first_name".tr(),
                           labelStyle: TextStyle(color: Colors.white),
                           alignLabelWithHint: true,
                           hintText: 'Earl',
@@ -226,7 +239,7 @@ class RegisterFormState extends State<RegisterForm> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           prefixIcon: Icon(Icons.person, color: Colors.white),
-                          labelText: "Last Name",
+                          labelText: "last_name".tr(),
                           labelStyle: TextStyle(color: Colors.white),
                           alignLabelWithHint: true,
                           hintText: 'John',
@@ -257,7 +270,7 @@ class RegisterFormState extends State<RegisterForm> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           prefixIcon: Icon(Icons.email, color: Colors.white),
-                          labelText: "Email",
+                          labelText: "email".tr(),
                           labelStyle: TextStyle(color: Colors.white),
                           alignLabelWithHint: true,
                           hintText: 'foo@bar.com',
@@ -297,11 +310,11 @@ class RegisterFormState extends State<RegisterForm> {
                               color: Colors.white,
                             ),
                           ),
-                          labelText: "Password",
+                          labelText: "password".tr(),
                           labelStyle: TextStyle(color: Colors.white),
                           focusColor: UIData.primaryColor,
                           alignLabelWithHint: true,
-                          hintText: 'Password',
+                          hintText: 'password'.tr(),
                           hintStyle: TextStyle(color: Colors.grey),
                         ),
                         onFieldSubmitted: (_) {
@@ -353,7 +366,7 @@ class RegisterFormState extends State<RegisterForm> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           prefixIcon: Icon(Icons.lock, color: Colors.white),
-                          labelText: "Confirm Password",
+                          labelText: "confirm_pass".tr(),
                           labelStyle: TextStyle(color: Colors.white),
                           focusColor: UIData.primaryColor,
                         ),
@@ -382,7 +395,7 @@ class RegisterFormState extends State<RegisterForm> {
                               backgroundColor: Colors.black,
                             ))
                         : Text(
-                            "SIGN UP",
+                            "sign_up".tr(),
                           ),
                     color: Colors.white,
                     onPressed: () async {
@@ -452,7 +465,7 @@ class RegisterFormState extends State<RegisterForm> {
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.camera_alt_outlined),
-                    title: Text('Camera'),
+                    title: Text('camera').tr(),
                     onTap: () {
                       _imgFromCamera();
                       Navigator.of(context).pop();
@@ -460,7 +473,7 @@ class RegisterFormState extends State<RegisterForm> {
                   ),
                   ListTile(
                       leading: Icon(Icons.photo_library),
-                      title: Text('Photo Library'),
+                      title: Text('photo_lib').tr(),
                       onTap: () {
                         _imgFromGallery();
                         Navigator.of(context).pop();

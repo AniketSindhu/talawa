@@ -1,6 +1,6 @@
 //flutter packages
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:talawa/utils/uidata.dart';
 
@@ -54,7 +54,7 @@ class _ChatState extends State<Chat> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
-                        hintText: "    Enter your message...."),
+                        hintText: "enter_msg".tr()),
                   ),
                 ),
                 Container(
