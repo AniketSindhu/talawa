@@ -177,5 +177,8 @@
   "Organization Description must not be left blank.": "संगठन विवरण को खाली नहीं छोड़ा जाना चाहिए।",
   "Organization Description must not exceed 5000 letters": "संगठन विवरण 5000 अक्षरों से अधिक नहीं होना चाहिए",
   "Attendees Description must not be left blank.": "उपस्थित विवरण खाली नहीं छोड़ा जाना चाहिए।",
-  "Attendees Description must not exceed 5000 letters": "उपस्थित विवरण 5000 अक्षरों से अधिक नहीं होना चाहिए"
+  "Attendees Description must not exceed 5000 letters": "उपस्थित विवरण 5000 अक्षरों से अधिक नहीं होना चाहिए",
+
+  "Dark Mode":"डार्क मोड",
+  "Change font size":"फॉण्ट आकार बदलें"
 }

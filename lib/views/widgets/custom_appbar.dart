@@ -38,7 +38,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
     getImg();
   }
 
-  Future getImg() async { //this function gets the image from the graphql query
+  Future getImg() async {
+    //this function gets the image from the graphql query
     GraphQLClient _client = graphQLConfiguration.clientToQuery();
     String orgId = await preferences.getCurrentOrgId();
 
@@ -61,6 +62,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         widget.title,
         style: TextStyle(color: Colors.white),
       ),
+      key: widget.key,
       leading: _imgSrc != null
           ? Padding(
               padding: const EdgeInsets.all(5.0),

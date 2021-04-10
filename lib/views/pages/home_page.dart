@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     currentIndex = widget.openPageIndex;
-    _controller  = PersistentTabController(initialIndex: currentIndex);
+    _controller = PersistentTabController(initialIndex: currentIndex);
   }
 
   void dispose() {
@@ -49,13 +49,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> getUserInfo() async {
-    final String userID = await preferences.getUserId(); //getting the current user id from the server
-    String mutation = Queries().fetchUserInfo2(userID); //getting some more user information with the ID
+    final String userID = await preferences
+        .getUserId(); //getting the current user id from the server
+    String mutation = Queries().fetchUserInfo2(
+        userID); //getting some more user information with the ID
     ApiFunctions apiFunctions = ApiFunctions();
     final result = await apiFunctions.gqlmutation(mutation);
   }
 
-  List<Widget> _buildScreens() { //here we are building the screens that are mention in the app bar
+  List<Widget> _buildScreens() {
+    //here we are building the screens that are mention in the app bar
     return [
       NewsFeed(), //first page of the news feed
       Groups(), //second page of the Group chatting event
@@ -67,31 +70,36 @@ class _HomePageState extends State<HomePage> {
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
-      PersistentBottomNavBarItem( //mentioning the screen home in the bottom bar
+      PersistentBottomNavBarItem(
+        //mentioning the screen home in the bottom bar
         icon: Icon(Icons.home),
-        title: ("Home").tr(),
+        title: ("Home".tr()),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
-      PersistentBottomNavBarItem( //mentioning the screen chats in the bottom bar
+      PersistentBottomNavBarItem(
+        //mentioning the screen chats in the bottom bar
         icon: Icon(Icons.chat),
         title: ("Chats".tr()),
-       activeColorPrimary: Colors.white,
+        activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
-      PersistentBottomNavBarItem( //mentioning the Events home in the bottom bar
+      PersistentBottomNavBarItem(
+        //mentioning the Events home in the bottom bar
         icon: Icon(Icons.calendar_today),
         title: ("Events".tr()),
-       activeColorPrimary: Colors.white,
+        activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
-      PersistentBottomNavBarItem( //mentioning the screen home in the bottom bar
+      PersistentBottomNavBarItem(
+        //mentioning the screen home in the bottom bar
         icon: Icon(Icons.group),
         title: ("Members".tr()),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
-      PersistentBottomNavBarItem( //mentioning the screen Profile in the bottom bar
+      PersistentBottomNavBarItem(
+        //mentioning the screen Profile in the bottom bar
         icon: Icon(Icons.folder),
         title: ("Profile".tr()),
         activeColorPrimary: Colors.white,
@@ -100,7 +108,8 @@ class _HomePageState extends State<HomePage> {
     ];
   }
 
-  void onTabTapped(int index) { //this function tells us what should be done if the particular tab is clicked
+  void onTabTapped(int index) {
+    //this function tells us what should be done if the particular tab is clicked
     setState(() {
       currentIndex = index;
     });

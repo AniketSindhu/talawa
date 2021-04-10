@@ -177,5 +177,7 @@
   "Organization Description must not be left blank.": "La description de l'organisation ne doit pas être laissée vide.",
   "Organization Description must not exceed 5000 letters": "La description de l'organisation ne doit pas dépasser 5000 lettres",
   "Attendees Description must not be left blank.": "La description des participants ne doit pas être laissée vide.",
-  "Attendees Description must not exceed 5000 letters": "La description des participants ne doit pas dépasser 5000 lettres"
+  "Attendees Description must not exceed 5000 letters": "La description des participants ne doit pas dépasser 5000 lettres",
+  "Dark Mode":"Mode sombre",
+  "Change font size":"Changer la taille de la police"
 }
