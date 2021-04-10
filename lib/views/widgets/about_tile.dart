@@ -9,8 +9,8 @@ class MyAboutTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return AboutListTile(
       applicationIcon: Container(
-        width: 50,
-      height: 50,
+        width: 30,
+      height: 30,
       child:  Image.asset('assets/images/talawaLogo-dark.png'),
       ),
       icon: Image.asset('assets/images/talawaLogo-dark.png'),

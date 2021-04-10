@@ -11,6 +11,7 @@ import 'package:talawa/utils/GQLClient.dart';
 import 'package:talawa/utils/globals.dart';
 import 'package:talawa/utils/uidata.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:talawa/views/pages/app_settings.dart';
 import 'package:talawa/views/pages/organization/join_organization.dart';
 import 'package:talawa/views/pages/organization/update_profile_page.dart';
 import 'package:talawa/views/widgets/about_tile.dart';
@@ -321,6 +322,19 @@ class _ProfilePageState extends State<ProfilePage> {
                                   screen: JoinOrganization(fromProfile: true,),
                                 );
                               }),
+                          ListTile(
+                            title: Text(
+                              "App settings",
+                              style: TextStyle(fontSize: 18.0),
+                            ),
+                            leading: Icon(
+                              Icons.settings,
+                              color: UIData.secondaryColor,
+                            ),
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>AppSettings()));
+                            },
+                          ),
                           isCreator == null
                               ? SizedBox()
                               : isCreator == true
@@ -387,7 +401,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   });
                             },
                           ),
+                          SizedBox(height:5),
                           MyAboutTile(),
+                          SizedBox(height:10),
                         ],
                       ).toList(),
                     ),
