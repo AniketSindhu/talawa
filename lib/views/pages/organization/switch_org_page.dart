@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -65,7 +65,7 @@ class _SwitchOrganizationState extends State<SwitchOrganization> {
         userOrg = result.data['users'][0]['joinedOrganizations'];
         print(userOrg);
         if (userOrg.isEmpty) {
-          showError("You are not registered to any organization");
+          showError("You are not registered to any organization".tr());
         }
       });
     }
@@ -88,8 +88,7 @@ class _SwitchOrganizationState extends State<SwitchOrganization> {
         print(result.exception);
         _exceptionToast(result.exception.toString());
       } else if (!result.hasException) {
-        _successToast("Switched to " +
-            result.data['organizations'][0]['name'].toString());
+        _successToast("Switched to".tr(args:[result.data['organizations'][0]['name'].toString()]));
 
         //save new current org in preference
         final String currentOrgId = result.data['organizations'][0]['_id'];
@@ -125,7 +124,7 @@ class _SwitchOrganizationState extends State<SwitchOrganization> {
         title: const Text(
           'Switch Organization',
           style: TextStyle(color: Colors.white),
-        ),
+        ).tr(),
       ),
       body: _progressBarState
           ? Center(child: CircularProgressIndicator())
@@ -169,7 +168,7 @@ class _SwitchOrganizationState extends State<SwitchOrganization> {
             ),
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.save),
-        label: Text("SAVE"),
+        label: Text("SAVE").tr(),
         backgroundColor: UIData.secondaryColor,
         foregroundColor: Colors.white,
         elevation: 5.0,

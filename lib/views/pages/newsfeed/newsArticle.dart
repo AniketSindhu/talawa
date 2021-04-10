@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/services.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //the pages are called here
 import 'package:talawa/services/Queries.dart';
 import 'package:talawa/services/preferences.dart';
@@ -295,7 +295,7 @@ class _NewsArticleState extends State<NewsArticle> {
         child: Text(
           'Load Comments',
           style: TextStyle(color: Colors.black54),
-        ));
+        ).tr());
   }
 
   // For getting length of Comments to be displayed
@@ -319,7 +319,7 @@ class _NewsArticleState extends State<NewsArticle> {
         ListTile(
           key: ValueKey('commentIcon'),
           leading: Icon(Icons.chat),
-          title: Text(comments.length.toString() + '  Comments'),
+          title: Text('Comments').tr(args:[comments.length.toString()]),
         ),
         Flexible(
           child: ListView.builder(
@@ -366,7 +366,7 @@ class _NewsArticleState extends State<NewsArticle> {
                     moreComments = true;
                   });
                 },
-                child: Text("View More Comments"))
+                child: Text("View More Comments").tr())
       ],
     );
   }

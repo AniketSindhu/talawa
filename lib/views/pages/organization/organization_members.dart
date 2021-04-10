@@ -1,7 +1,7 @@
 //flutter imported packages
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
@@ -68,7 +68,7 @@ class _OrganizationMembersState extends State<OrganizationMembers>
         membersList = result.data['organizations'][0]['members'];
       });
       if (membersList.length == 1) {
-        _exceptionToast('You are alone here.');
+        _exceptionToast('You are alone here.').tr();
       }
     }
   }
@@ -99,7 +99,7 @@ class _OrganizationMembersState extends State<OrganizationMembers>
       setState(() {
         processing = false;
       });
-      _successToast('Member(s) removed successfully');
+      _successToast('Member(s) removed successfully'.tr());
       viewMembers();
     }
   }
@@ -128,11 +128,11 @@ class _OrganizationMembersState extends State<OrganizationMembers>
         setState(() {
           processing = false;
         });
-        _successToast('Admin created');
+        _successToast('Admin created'.tr());
         viewMembers();
       }
     } else {
-      _exceptionToast('Already an admin');
+      _exceptionToast('Already an admin'.tr());
     }
   }
 
@@ -144,7 +144,7 @@ class _OrganizationMembersState extends State<OrganizationMembers>
           selectedMembers.add('"$memberId"');
         });
       } else {
-        _exceptionToast('Can\'t select admins');
+        _exceptionToast("Can't select admins".tr());
       }
     } else {
       setState(() {
@@ -158,7 +158,7 @@ class _OrganizationMembersState extends State<OrganizationMembers>
     return Scaffold(
       appBar: AppBar(
         title: const Text('Organization Members',
-            style: TextStyle(color: Colors.white)),
+            style: TextStyle(color: Colors.white)).tr(),
       ),
       body: Stack(
         children: [
@@ -233,23 +233,23 @@ class _OrganizationMembersState extends State<OrganizationMembers>
               child: FloatingActionButton.extended(
                 heroTag: null,
                 backgroundColor: UIData.secondaryColor,
-                tooltip: index == 0 ? "Remove" : "Admin",
+                tooltip: index == 0 ? "Remove".tr() : "Admin".tr(),
                 icon: Icon(
                     index == 0 ? Icons.delete : Icons.admin_panel_settings,
                     color: Colors.white),
-                label: Text(index == 0 ? "Remove" : "Admin"),
+                label: Text(index == 0 ? "Remove".tr() : "Admin".tr()),
                 onPressed: () {
                   if (index == 0) {
                     dialog(
-                        "Are you sure you want to remove selected member(s)?",
+                        "Are you sure you want to remove selected member(s)?".tr(),
                         removeMembers);
                   } else if (index == 1) {
                     if (selectedMembers.length == 1) {
                       dialog(
-                          "Are you sure you want to make selected member and admin?",
+                          "Are you sure you want to make selected member and admin?".tr(),
                           addAdmin);
                     } else {
-                      _exceptionToast('You can make one admin at a time');
+                      _exceptionToast('You can make one admin at a time'.tr());
                     }
                   }
                 },

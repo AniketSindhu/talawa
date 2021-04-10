@@ -1,7 +1,7 @@
 //flutter imported packages
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -82,7 +82,7 @@ class _AddPostState extends State<AddPost> {
         title: Text(
           'New Post',
           style: TextStyle(color: Colors.white),
-        ),
+        ).tr(),
       ),
       body: Container(
           child: Form(
@@ -103,11 +103,11 @@ class _AddPostState extends State<AddPost> {
                 textInputAction: TextInputAction.next,
                 validator: (String value) {
                   if (value.length > 30) {
-                    return "Post title cannot be longer than 30 letters";
+                    return "Post title cannot be longer than 30 letters".tr();
                   }
 
                   if (value.isEmpty) {
-                    return "This field is Required";
+                    return "This field is Required".tr();
                   }
                   return null;
                 },
@@ -118,7 +118,7 @@ class _AddPostState extends State<AddPost> {
                       Radius.circular(20.0),
                     ),
                   ),
-                  labelText: 'Give your post a title....',
+                  labelText: 'Give your post a title....'.tr(),
                 ),
                 //  'Give your post a title....',
               ),
@@ -137,11 +137,11 @@ class _AddPostState extends State<AddPost> {
                 controller: textController,
                 validator: (String value) {
                   if (value.length > 10000) {
-                    return "Post cannot be longer than 10000 letters";
+                    return "Post cannot be longer than 10000 letters".tr();
                   }
 
                   if (value.isEmpty) {
-                    return "This field is Required";
+                    return "This field is Required".tr();
                   }
                   return null;
                 },
@@ -151,7 +151,7 @@ class _AddPostState extends State<AddPost> {
                       Radius.circular(20.0),
                     ),
                   ),
-                  labelText: 'Write Your post here....',
+                  labelText: 'Write Your post here....'.tr()
                 ),
                 //  'Give your post Description here....',
               ),

@@ -1,7 +1,7 @@
 //flutter packages are called here
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -87,7 +87,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
           .saveCurrentOrgName(newOrgName);
       Provider.of<Preferences>(context, listen: false)
           .saveCurrentOrgId(newOrgId);
-      _successToast('You are no longer apart of this organization');
+      _successToast('You are no longer apart of this organization'.tr());
       pushNewScreen(
         context,
         screen: ProfilePage(),
@@ -121,7 +121,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
       });
       //_exceptionToast(result.exception.toString().substring(16));
     } else if (!result.hasException && !result.loading) {
-      _successToast('Successfully Removed Organization');
+      _successToast('Successfully Removed Organization'.tr());
       setState(() {
         remaindingOrg =
             result.data['removeOrganization']['joinedOrganizations'];
@@ -154,7 +154,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Organization Settings',
-              style: TextStyle(color: Colors.white)),
+              style: TextStyle(color: Colors.white)).tr(),
         ),
         body: Stack(
           children: [
@@ -173,7 +173,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                     title: Text(
                       'Update Organization',
                       style: TextStyle(fontSize: 18.0),
-                    ),
+                    ).tr(),
                     leading: Icon(
                       Icons.update,
                       color: UIData.secondaryColor,
@@ -203,10 +203,10 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                         title: Text(
                           'Accept MemberShip Requests',
                           style: TextStyle(fontSize: 18.0),
-                        ),
+                        ).tr(),
                         subtitle: Text(
                           'For Private Organizations',
-                        ),
+                        ).tr(),
                         leading: Icon(
                           Icons.group_add,
                           color: UIData.secondaryColor,
@@ -223,7 +223,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                     title: Text(
                       'Member(s)',
                       style: TextStyle(fontSize: 18.0),
-                    ),
+                    ).tr(),
                     leading: Icon(
                       Icons.person,
                       color: UIData.secondaryColor,
@@ -241,7 +241,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                         title: Text(
                           'Remove This Organization',
                           style: TextStyle(fontSize: 18.0),
-                        ),
+                        ).tr(),
                         leading: Icon(
                           Icons.delete,
                           color: UIData.secondaryColor,
@@ -249,14 +249,14 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                         onTap: () async {
                           if (!widget.creator) {
                             _exceptionToast(
-                                'Creator can only remove organization');
+                                'Creator can only remove organization'.tr());
                           }
                           showDialog(
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertBox(
                                   message:
-                                      "Are you sure you want to remove this organization?",
+                                      "Are you sure you want to remove this organization?".tr(),
                                   function: removeOrg,
                                 );
                               });
@@ -266,7 +266,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                     title: Text(
                           'Leave Organization',
                           style: TextStyle(fontSize: 18.0),
-                        ),
+                        ).tr(),
                         leading: Icon(
                           Icons.person,
                           color: UIData.secondaryColor,
@@ -277,7 +277,7 @@ class _OrganizationSettingsState extends State<OrganizationSettings> {
                               builder: (BuildContext context) {
                                 return AlertBox(
                                   message:
-                                      "Are you sure you want to leave this organization?",
+                                      "Are you sure you want to leave this organization?".tr(),
                                   function: leaveOrg,
                                 );
                               });

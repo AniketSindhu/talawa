@@ -1,7 +1,7 @@
 //flutter packages are called here
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:talawa/services/Queries.dart';
 import 'package:talawa/services/preferences.dart';
@@ -54,15 +54,15 @@ class _UserTasksState extends State<UserTasks> {
                     children: <Widget>[
                       ListTile(
                         leading: Text(
-                            'Description: ${userTasks[index]["description"]}'),
+                            'des:').tr(args: ['${userTasks[index]["description"]}']),
                       ),
                       userTasks[index]["deadline"] != null
                           ? ListTile(
                               leading: Text(
-                                  'Due Date: ${DateFormat("dd-MM-yyyy").format((DateTime.fromMillisecondsSinceEpoch(int.parse(userTasks[index]["deadline"]))))}'),
+                                  'due_date').tr(args:['${DateFormat("dd-MM-yyyy").format((DateTime.fromMillisecondsSinceEpoch(int.parse(userTasks[index]["deadline"]))))}']),
                             )
                           : ListTile(
-                              leading: Text('Due Date: N/A'),
+                              leading: Text('Due Date: N/A').tr(),
                             )
                     ],
                   ));
@@ -73,7 +73,7 @@ class _UserTasksState extends State<UserTasks> {
               "No Tasks found",
               style: TextStyle(fontSize: 20),
               textAlign: TextAlign.center,
-            )),
+            ).tr()),
           );
   }
 }

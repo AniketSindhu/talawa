@@ -3,7 +3,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //files are imported here
 import 'package:provider/provider.dart';
 import 'package:talawa/utils/GQLClient.dart';
@@ -53,7 +53,7 @@ class _MemberDetailState extends State<MemberDetail>
           title: Text(
             'User Info',
             style: TextStyle(color: Colors.white),
-          ),
+          ).tr(),
         ),
         body: CustomScrollView(slivers: [
           SliverAppBar(
@@ -72,7 +72,7 @@ class _MemberDetailState extends State<MemberDetail>
                     alignment: Alignment.centerLeft,
                     height: 30,
                     child: Text(
-                        'User email: ' + widget.member['email'].toString()),
+                        'user_email').tr(args:[widget.member['email'].toString()]),
                   )),
                   Card(
                       child: Container(
@@ -80,7 +80,7 @@ class _MemberDetailState extends State<MemberDetail>
                     padding: EdgeInsets.only(left: 20),
                     alignment: Alignment.centerLeft,
                     height: 30,
-                    child: Text('User Privileges: '+getPrivilege(widget.member['_id']),key: Key('Privilege'),),
+                    child: Text('user_priv',key: Key('Privilege'),).tr(args:[getPrivilege(widget.member['_id'])]),
                   )),
                 ]),
               )),
@@ -102,13 +102,13 @@ class _MemberDetailState extends State<MemberDetail>
                           style: TextStyle(
                             color: Colors.white,
                           ),
-                        ),
+                        ).tr(),
                       ),
                       Tab(
                         icon: Text(
                           'Registered Events',
                           style: TextStyle(color: Colors.white),
-                        ),
+                        ).tr(),
                       ),
                     ],
                   ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
-
+import 'package:easy_localization/easy_localization.dart';
 class Loading extends StatefulWidget {
   Loading({Key key}) : super(key: key);
   @override
@@ -61,7 +61,7 @@ class _LoadingState extends State<Loading> {
               Text(
                 'No data or something went wrong',
                 style: TextStyle(color: Colors.red),
-              ),
+              ).tr(),
             ],
           );
   }

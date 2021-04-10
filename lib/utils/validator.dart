@@ -1,23 +1,23 @@
 import 'package:email_validator/email_validator.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class Validator {
   static String validateURL(String value) {
     if (value.length == 0) {
-      return 'Please verify URL first'.toUpperCase();
+      return 'Please verify URL first'.toUpperCase().tr();
     }
     return null;
   }
 
   static String validateFirstName(String value) {
     if (value.length == 0) {
-      return 'Firstname must not be left blank.';
+      return 'Firstname must not be left blank.'.tr();
     }
     return null;
   }
 
   static String validateLastName(String value) {
     if (value.length == 0) {
-      return 'Lastname must not be left blank.';
+      return 'Lastname must not be left blank.'.tr();
     }
     return null;
   }
@@ -25,12 +25,12 @@ class Validator {
   static String validateEmail(String email) {
     // If email is empty return.
     if (email.isEmpty) {
-      return "Email must not be left blank";
+      return "Email must not be left blank".tr();
     }
 
     final bool isValid = EmailValidator.validate(email);
     if (!isValid) {
-      return 'Please enter a valid Email Address';
+      return 'Please enter a valid Email Address'.tr();
     }
     return null;
   }
@@ -52,26 +52,26 @@ class Validator {
   static String validatePassword(String password) {
     // If password is empty return.
     if (password.isEmpty) {
-      return "Password must not be left blank";
+      return "Password must not be left blank".tr();
     }
     String pattern = r'^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#\$&*%^~.]).{8,}$';
     RegExp regExp = new RegExp(pattern);
     if (!regExp.hasMatch(password)) {
-      return "Invalid Password";
+      return "Invalid Password".tr();
     }
     return null;
   }
 
   static String validatePasswordConfirm(String value, String comparator) {
     if (value != comparator) {
-      return 'Password does not match original';
+      return 'Password does not match original'.tr();
     }
     return null;
   }
 
   static String validateTitle(String value) {
     if (value.length < 4) {
-      return 'Title must be at least 4 characters.';
+      return 'Title must be at least 4 characters.'.tr();
     }
 
     return null;
@@ -79,7 +79,7 @@ class Validator {
 
   static String validateDateTime(DateTime value) {
     if (value == null) {
-      return 'Date field must not be left blank.';
+      return 'Date field must not be left blank.'.tr();
     }
 
     return null;
@@ -87,7 +87,7 @@ class Validator {
 
   static String validateDescription(String value) {
     if (value.length < 5 || value.length > 50) {
-      return 'Description field must range between\n 5 and 30 characters';
+      return 'Description field must range between\n 5 and 30 characters'.tr();
     }
 
     return null;
@@ -95,30 +95,30 @@ class Validator {
 
   static String validateOrgName(String value) {
     if (value.length == 0) {
-      return 'Organization Name must not be left blank.';
+      return 'Organization Name must not be left blank.'.tr();
     }
     if (value.length > 40) {
-      return 'Organization Name must not exceed 40 letters';
+      return 'Organization Name must not exceed 40 letters'.tr();
     }
     return null;
   }
 
   static String validateOrgDesc(String value) {
     if (value.length == 0) {
-      return 'Organization Description must not be left blank.';
+      return 'Organization Description must not be left blank.'.tr();
     }
     if (value.length > 5000) {
-      return 'Organization Description must not exceed 5000 letters';
+      return 'Organization Description must not exceed 5000 letters'.tr();
     }
     return null;
   }
 
   static String validateOrgAttendeesDesc(String value) {
     if (value.length == 0) {
-      return 'Attendees Description must not be left blank.';
+      return 'Attendees Description must not be left blank.'.tr();
     }
     if (value.length > 5000) {
-      return 'Attendees Description must not exceed 5000 letters';
+      return 'Attendees Description must not exceed 5000 letters'.tr();
     }
     return null;
   }

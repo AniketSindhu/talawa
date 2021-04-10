@@ -3,7 +3,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:talawa/controllers/auth_controller.dart';
@@ -175,7 +175,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
             Navigator.pop(context);
           },
         ),
-        title: const Text('Create Organization'),
+        title: const Text('Create Organization').tr(),
       ),
       body: Container(
         color: Colors.white,
@@ -186,7 +186,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
             children: <Widget>[
               addImage(),
               Text('Upload Organization Image',
-                  style: TextStyle(fontSize: 16, color: Colors.black)),
+                  style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
               Form(
                 key: _formKey,
                 autovalidateMode: _validate,
@@ -223,10 +223,10 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                                 Icons.group,
                                 color: UIData.secondaryColor,
                               ),
-                              labelText: "Organization Name",
+                              labelText: "Organization Name".tr(),
                               labelStyle: TextStyle(color: Colors.black),
                               alignLabelWithHint: true,
-                              hintText: 'My Organization',
+                              hintText: 'My Organization'.tr(),
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                             controller: orgNameController,
@@ -253,10 +253,10 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                                   borderRadius: BorderRadius.circular(20.0)),
                               prefixIcon: Icon(Icons.note,
                                   color: UIData.secondaryColor),
-                              labelText: "Organization Description",
+                              labelText: "Organization Description".tr(),
                               labelStyle: TextStyle(color: Colors.black),
                               alignLabelWithHint: true,
-                              hintText: 'My Description',
+                              hintText: 'My Description'.tr(),
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                             controller: orgDescController,
@@ -283,10 +283,10 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                                       color: UIData.secondaryColor)),
                               prefixIcon: Icon(Icons.note,
                                   color: UIData.secondaryColor),
-                              labelText: "Member Description",
+                              labelText: "Member Description".tr(),
                               labelStyle: TextStyle(color: Colors.black),
                               alignLabelWithHint: true,
-                              hintText: 'Member Description',
+                              hintText: 'Member Description'.tr(),
                               hintStyle: TextStyle(color: Colors.grey),
                             ),
                             controller: orgMemberDescController,
@@ -297,10 +297,10 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                         ],
                       )),
                       Text('Do you want your organization to be public?',
-                          style: TextStyle(fontSize: 16, color: Colors.black)),
+                          style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
                       RadioListTile(
                         groupValue: radioValue,
-                        title: Text('Yes'),
+                        title: Text('Yes').tr(),
                         value: 0,
                         activeColor: UIData.secondaryColor,
                         onChanged: (val) {
@@ -316,7 +316,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                       RadioListTile(
                         activeColor: UIData.secondaryColor,
                         groupValue: radioValue,
-                        title: Text('No'),
+                        title: Text('No').tr(),
                         value: 1,
                         onChanged: (val) {
                           FocusScope.of(context).unfocus();
@@ -331,11 +331,11 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                       ),
                       Text(
                           'Do you want others to be able to find your organization from the search page?',
-                          style: TextStyle(fontSize: 16, color: Colors.black)),
+                          style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
                       RadioListTile(
                         activeColor: UIData.secondaryColor,
                         groupValue: radioValue1,
-                        title: Text('Yes'),
+                        title: Text('Yes').tr(),
                         value: 0,
                         onChanged: (val) {
                           FocusScope.of(context).unfocus();
@@ -350,7 +350,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                       RadioListTile(
                         activeColor: UIData.secondaryColor,
                         groupValue: radioValue1,
-                        title: Text('No'),
+                        title: Text('No').tr(),
                         value: 1,
                         onChanged: (val) {
                           FocusScope.of(context).unfocus();
@@ -386,9 +386,9 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                               : Text(
                                   "CREATE ORGANIZATION",
                                   style: TextStyle(color: Colors.white),
-                                ),
+                                ).tr(),
                           onPressed: _progressBarState?(){
-                            _exceptionToast('Request in Progress');
+                            _exceptionToast('Request in Progress'.tr());
                           }:() async {
                             if (_formKey.currentState.validate() &&
                                 radioValue >= 0 &&
@@ -403,7 +403,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                                 toggleProgressBarState();
                               });
                             } else if (radioValue < 0 || radioValue1 < 0) {
-                              _exceptionToast("A choice must be selected");
+                              _exceptionToast("A choice must be selected".tr());
                             }
                           },
                         ),
@@ -465,7 +465,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                 children: <Widget>[
                   ListTile( //taking picture from the camera
                     leading: Icon(Icons.camera_alt_outlined),
-                    title: Text('Camera'),
+                    title: Text('camera').tr(),
                     onTap: () {
                       _imgFromCamera();
                       Navigator.of(context).pop();
@@ -473,7 +473,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                   ),
                   ListTile( //taking picture from the library
                       leading: Icon(Icons.photo_library),
-                      title: Text('Photo Library'),
+                      title: Text('photo_lib').tr(),
                       onTap: () {
                         _imgFromGallery();
                         Navigator.of(context).pop();

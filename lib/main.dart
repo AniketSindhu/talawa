@@ -35,7 +35,7 @@ Future<void> main() async {
         ChangeNotifierProvider<Preferences>(create: (_) => Preferences()),
       ],
       child: EasyLocalization(
-        supportedLocales: [Locale('en','US'),Locale('hi','IN')],
+        supportedLocales: [Locale('en','US'),Locale('hi','IN'),Locale('es'),Locale('fr')],
         path: 'assets/translations',
         fallbackLocale: Locale('en','US'),
         child: MyApp()),

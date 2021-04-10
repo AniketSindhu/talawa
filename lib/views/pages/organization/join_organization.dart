@@ -1,7 +1,7 @@
 //flutter packages are imported here
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //Pages are imported here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -111,7 +111,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
       _exceptionToast(result.exception.toString().substring(16));
     } else if (!result.hasException && !result.loading) {
       print(result.data);
-      _successToast("Request Sent to Organization Admin");
+      _successToast("Request Sent to Organization Admin".tr());
 
       if (widget.fromProfile) {
         Navigator.pop(context);
@@ -157,7 +157,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
             ['joinedOrganizations'][0]['name'];
         await _pref.saveCurrentOrgName(currentOrgName);
       }
-      _successToast("Sucess!");
+      _successToast("Sucess".tr());
 
       //Navigate user to newsfeed
       if (widget.fromProfile) {
@@ -177,7 +177,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Join Organization',
-            style: TextStyle(color: Colors.white)),
+            style: TextStyle(color: Colors.white)).tr(),
       ),
       body: organizationInfo.isEmpty
           ? Center(child: Loading(key: UniqueKey(),))
@@ -187,7 +187,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "Welcome, \nJoin or Create your organization to get started",
+                    "Welcome, \nJoin or Create your organization to get started".tr(),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -221,7 +221,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                           padding: EdgeInsets.all(0.0),
                           child: Icon(Icons.search, color: Colors.black),
                         ),
-                        hintText: "Search Organization Name"),
+                        hintText: "Search Organization Name".tr()),
                   ),
                   SizedBox(height: 15),
                   Expanded(
@@ -292,17 +292,16 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                                                 overflow:
                                                     TextOverflow.ellipsis),
                                             Text(
-                                                'Created by: ' +
-                                                    organization['creator']
+                                                'Created by: ',
+                                                maxLines: 2,
+                                                overflow:
+                                                    TextOverflow.ellipsis).tr(args:[                                                    organization['creator']
                                                             ['firstName']
                                                         .toString() +
                                                     ' ' +
                                                     organization['creator']
                                                             ['lastName']
-                                                        .toString(),
-                                                maxLines: 2,
-                                                overflow:
-                                                    TextOverflow.ellipsis),
+                                                        .toString()]),
                                           ],
                                         ),
                                         trailing: new RaisedButton(
@@ -330,7 +329,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                                                             Colors.white),
                                                     strokeWidth: 2,
                                                   )
-                                                : new Text("JOIN"),
+                                                : new Text("JOIN").tr(),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   new BorderRadius.circular(
@@ -405,17 +404,16 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                                                 overflow:
                                                     TextOverflow.ellipsis),
                                             Text(
-                                                'Created by: ' +
-                                                    organization['creator']
+                                                'Created by: ',
+                                                maxLines: 2,
+                                                overflow:
+                                                    TextOverflow.ellipsis).tr(args:[                                                    organization['creator']
                                                             ['firstName']
                                                         .toString() +
                                                     ' ' +
                                                     organization['creator']
                                                             ['lastName']
-                                                        .toString(),
-                                                maxLines: 2,
-                                                overflow:
-                                                    TextOverflow.ellipsis),
+                                                        .toString()]),
                                           ],
                                         ),
                                         trailing: new RaisedButton(
@@ -443,7 +441,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                                                             Colors.white),
                                                     strokeWidth: 2,
                                                   )
-                                                : new Text("JOIN"),
+                                                : new Text("JOIN").tr(),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   new BorderRadius.circular(
@@ -477,17 +475,17 @@ class _JoinOrganizationState extends State<JoinOrganization> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Confirmation"),
-            content: Text("Are you sure you want to join this organization?"),
+            title: Text("Confirmation").tr(),
+            content: Text("Are you sure you want to join this organization?").tr(),
             actions: [
               FlatButton(
-                child: Text("Close"),
+                child: Text("Close").tr(),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               FlatButton(
-                child: Text("Yes"),
+                child: Text("Yes").tr(),
                 onPressed: () async {
                   setState(() {
                     _isLoaderActive = true;

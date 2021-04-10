@@ -1,7 +1,7 @@
 //flutter packages are imported  here
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +57,7 @@ class _AcceptRequestsPageState extends State<AcceptRequestsPage> {
       });
 
       if (membershipRequestsList.length == 0) {
-        _exceptionToast('You have no new requests.');
+        _exceptionToast('You have no new requests.'.tr());
       }
     }
   }
@@ -85,7 +85,7 @@ class _AcceptRequestsPageState extends State<AcceptRequestsPage> {
       setState(() {
         processing = false;
       });
-      _successToast('Success');
+      _successToast('Success'.tr());
       viewMemberShipRequests();
     }
   }
@@ -123,7 +123,7 @@ class _AcceptRequestsPageState extends State<AcceptRequestsPage> {
     //building the UI page
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Membership Requests', style: const TextStyle(color: Colors.white)),
+        title: const Text('Membership Requests', style: const TextStyle(color: Colors.white)).tr(),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -146,7 +146,7 @@ class _AcceptRequestsPageState extends State<AcceptRequestsPage> {
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                           ),
-                        ),
+                        ).tr(),
                         const SizedBox(
                           height: 50,
                         ),

@@ -1,7 +1,7 @@
 //imported flutter packages
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //importing the pages here
 import 'package:provider/provider.dart';
 import 'package:talawa/services/Queries.dart';
@@ -69,31 +69,31 @@ class _HomePageState extends State<HomePage> {
     return [
       PersistentBottomNavBarItem( //mentioning the screen home in the bottom bar
         icon: Icon(Icons.home),
-        title: ("Home"),
+        title: ("Home").tr(),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem( //mentioning the screen chats in the bottom bar
         icon: Icon(Icons.chat),
-        title: ("Chats"),
+        title: ("Chats".tr()),
        activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem( //mentioning the Events home in the bottom bar
         icon: Icon(Icons.calendar_today),
-        title: ("Events"),
+        title: ("Events".tr()),
        activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem( //mentioning the screen home in the bottom bar
         icon: Icon(Icons.group),
-        title: ("Members"),
+        title: ("Members".tr()),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem( //mentioning the screen Profile in the bottom bar
         icon: Icon(Icons.folder),
-        title: ("Profile"),
+        title: ("Profile".tr()),
         activeColorPrimary: Colors.white,
         inactiveColorPrimary: Colors.white,
       ),

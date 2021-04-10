@@ -1,6 +1,6 @@
 //flutter packages
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages called are here
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -95,7 +95,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
       setState(() {
         _progressBarState = true;
       });
-      _successToast("Success!");
+      _successToast("Success".tr());
       pushNewScreen(
         context,
         screen: ProfilePage(),
@@ -111,7 +111,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
         count,
         (index) => RadioListTile(
           groupValue: group,
-          title: Text(index==0?'Yes':'No'),
+          title: Text(index==0?'Yes'.tr():'No'.tr()),
           value: index,
           activeColor: UIData.secondaryColor,
           onChanged: (val) {
@@ -141,7 +141,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
     return Scaffold(
         appBar: AppBar(
             title: const Text('Update Organization',
-                style: TextStyle(color: Colors.white))),
+                style: TextStyle(color: Colors.white)).tr()),
         body: Container(
           color: Colors.white,
           child: radioValue == null
@@ -167,8 +167,8 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                             textCapitalization: TextCapitalization.words,
                             style: TextStyle(color: Colors.black),
                             decoration: FormFieldFormatting.formFieldFormatting(
-                              hintText: "Organization Name",
-                              labelText: 'My Organization',
+                              hintText: "Organization Name".tr(),
+                              labelText: 'My Organization'.tr(),
                               prefixIcon: Icons.group,
                             ),
                             controller: orgNameController,
@@ -185,8 +185,8 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                             textAlign: TextAlign.left,
                             style: TextStyle(color: Colors.black),
                             decoration: FormFieldFormatting.formFieldFormatting(
-                                hintText: "My Description",
-                                labelText: "Organization Description",
+                                hintText: "My Description".tr(),
+                                labelText: "Organization Description".tr(),
                                 prefixIcon: Icons.note_sharp),
                             controller: orgDescController,
                           ),
@@ -203,8 +203,8 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                             textAlign: TextAlign.left,
                             style: TextStyle(color: Colors.black),
                             decoration: FormFieldFormatting.formFieldFormatting(
-                                hintText: "Member Description",
-                                labelText: "Member Description",
+                                hintText: "Member Description".tr(),
+                                labelText: "Member Description".tr(),
                                 prefixIcon: Icons.note_sharp),
                             controller: orgMemberDescController,
                           ),
@@ -213,12 +213,12 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                           ),
                           Text('Do you want your organization to be public?',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                                  TextStyle(fontSize: 16, color: Colors.black)).tr(),
                           getRadioButton(radioValue,2,true),
                           Text(
                               'Do you want others to be able to find your organization from the search page?',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.black)),
+                                  TextStyle(fontSize: 16, color: Colors.black)).tr(),
                           getRadioButton(radioValue1,2,false),
                           Container(
                             padding: EdgeInsets.symmetric(
@@ -241,9 +241,9 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                                         backgroundColor: Colors.black,
                                       )))
                                   : Text(
-                                      "UPDATE ORGANIZATION",
+                                      "Update Organization",
                                       style: TextStyle(color: Colors.white),
-                                    ),
+                                    ).tr(),
                               onPressed: () async {
                                 if (_formKey.currentState.validate() &&
                                     radioValue >= 0 &&
@@ -254,7 +254,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                                     toggleProgressBarState();
                                   });
                                 } else if (radioValue < 0 || radioValue1 < 0) {
-                                  _exceptionToast("A choice must be selected");
+                                  _exceptionToast("A choice must be selected".tr());
                                 }
                               },
                             ),

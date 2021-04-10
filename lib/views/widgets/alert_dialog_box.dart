@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class AlertBox extends StatefulWidget {
   final String message;
   final Function function;
@@ -12,18 +12,18 @@ class _AlertBoxState extends State<AlertBox> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Confirmation"),
+      title: Text("Confirmation").tr(),
       content: Text(
           widget.message),
       actions: [
         ElevatedButton(
-          child: Text("Close"),
+          child: Text("Close").tr(),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         ElevatedButton(
-          child: Text("Yes"),
+          child: Text("Yes").tr(),
           onPressed: () async {
             print('here');
             widget.function();

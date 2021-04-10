@@ -1,7 +1,7 @@
 //flutter packages are  imported here
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are imported here
 import 'package:talawa/controllers/auth_controller.dart';
 import 'package:talawa/controllers/org_controller.dart';
@@ -216,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20.0,
-                                    color: Colors.white)),
+                                    color: Colors.white)).tr(),
                             trailing: userDetails[0]['image'] != null
                                 ? CircleAvatar(
                                     radius: 30,
@@ -255,7 +255,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0),
                           child: Text(
-                              "Current Organization: " + (orgName??'No Organization Joined'),
+                              "Current Organization: ".tr() + (orgName??'No Organization Joined'.tr()),
                               style: TextStyle(
                                   fontSize: 16.0, color: Colors.white)),
                         ),
@@ -273,7 +273,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               'Update Profile',
                               style: TextStyle(fontSize: 18.0),
-                            ),
+                            ).tr(),
                             leading: Icon(
                               Icons.edit,
                               color: UIData.secondaryColor,
@@ -294,7 +294,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   title: Text(
                                     'Switch Organization',
                                     style: TextStyle(fontSize: 18.0),
-                                  ),
+                                  ).tr(),
                                   leading: Icon(
                                     Icons.compare_arrows,
                                     color: UIData.secondaryColor,
@@ -310,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               title: Text(
                                 'Join or Create New Organization',
                                 style: TextStyle(fontSize: 18.0),
-                              ),
+                              ).tr(),
                               leading: Icon(
                                 Icons.business,
                                 color: UIData.secondaryColor,
@@ -329,7 +329,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               title: Text(
                                         'Organization Settings',
                                         style: TextStyle(fontSize: 18.0),
-                                      ),
+                                      ).tr(),
                                       leading: Icon(
                                         Icons.settings,
                                         color: UIData.secondaryColor,
@@ -348,7 +348,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               title: Text(
                                         'Leave This Organization',
                                         style: TextStyle(fontSize: 18.0),
-                                      ),
+                                      ).tr(),
                                       leading: Icon(
                                         Icons.exit_to_app,
                                         color: UIData.secondaryColor,
@@ -359,7 +359,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                             builder: (BuildContext context) {
                                               return AlertBox(
                                                   message:
-                                                      "Are you sure you want to leave this organization?",
+                                                      "Are you sure you want to leave this organization?".tr(),
                                                   function: leaveOrg);
                                             });
                                       }),
@@ -368,7 +368,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text(
                               "Logout",
                               style: TextStyle(fontSize: 18.0),
-                            ),
+                            ).tr(),
                             leading: Icon(
                               Icons.exit_to_app,
                               color: UIData.secondaryColor,
@@ -379,7 +379,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   builder: (BuildContext context) {
                                     return AlertBox(
                                       message:
-                                          "Are you sure you want to logout?",
+                                          "Are you sure you want to logout?".tr(),
                                       function: () {
                                         _authController.logout(context);
                                       },

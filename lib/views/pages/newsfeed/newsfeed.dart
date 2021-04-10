@@ -15,7 +15,7 @@ import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/utils/timer.dart';
 import 'package:talawa/views/widgets/custom_appbar.dart';
 import 'package:talawa/views/widgets/loading.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class NewsFeed extends StatefulWidget {
   NewsFeed({Key key}) : super(key: key);
 
@@ -123,7 +123,7 @@ class _NewsFeedState extends State<NewsFeed> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        appBar: CustomAppBar('NewsFeed',key: Key('NEWSFEED_APP_BAR')),
+        appBar: CustomAppBar('NewsFeed'.tr(),key: Key('NEWSFEED_APP_BAR')),
         floatingActionButton: addPostFab(),
         body: postList.isEmpty
             ? Center(child: Loading(key: UniqueKey(),))

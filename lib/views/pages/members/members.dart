@@ -2,7 +2,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 //pages are called here
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
@@ -126,7 +126,7 @@ class _OrganizationsState extends State<Organizations> {
           title: Text(
             'Members',
             style: TextStyle(color: Colors.white),
-          ),
+          ).tr(),
         ),
         body: alphaMembersList.isEmpty
             ? RefreshIndicator(
@@ -144,7 +144,7 @@ class _OrganizationsState extends State<Organizations> {
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
-                  ),
+                  ).tr(),
                   SizedBox(
                     height: 50,
                   ),
@@ -152,7 +152,7 @@ class _OrganizationsState extends State<Organizations> {
                     onPressed: () {
                       getMembers();
                     },
-                    child: Text("Refresh"),
+                    child: Text("Refresh").tr(),
                   )
                 ])))
             : RefreshIndicator(
@@ -289,17 +289,17 @@ class _OrganizationsState extends State<Organizations> {
   Widget popUpMenue(Map member) {
     return PopupMenuButton<int>(
       itemBuilder: (BuildContext context) => <PopupMenuEntry<int>>[
-        const PopupMenuItem<int>(
+         PopupMenuItem<int>(
             value: 1,
             child: ListTile(
               leading: Icon(Icons.playlist_add_check),
-              title: Text('View Assigned Tasks'),
+              title: Text('View Assigned Tasks').tr()
             )),
-        const PopupMenuItem<int>(
+         PopupMenuItem<int>(
             value: 2,
             child: ListTile(
               leading: Icon(Icons.playlist_add_check),
-              title: Text('View Registered Events'),
+              title: Text('View Registered Events').tr(),
             )),
       ],
     );

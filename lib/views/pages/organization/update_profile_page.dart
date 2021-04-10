@@ -14,7 +14,7 @@ import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/utils/validator.dart';
 import 'package:talawa/view_models/vm_register.dart';
 import 'package:talawa/views/pages/organization/profile_page.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class UpdateProfilePage extends StatefulWidget {
   final List userDetails;
   const UpdateProfilePage({Key key, @required this.userDetails})
@@ -98,7 +98,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
         _progressBarState = false;
       });
 
-      await _successToast('Profile Updated');
+      await _successToast('Profile Updated'.tr());
 
       pushNewScreen(
         context,
@@ -163,7 +163,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
         _progressBarState = false;
       });
 
-      _successToast('Profile Updated');
+      _successToast('Profile Updated'.tr());
 
       pushNewScreen(
         context,
@@ -224,7 +224,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                         child: ListTile(
                           contentPadding: EdgeInsets.all(0),
                           title: Text(
-                            'Update Profile',
+                            'Update Profile'.tr(),
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w800,
@@ -236,7 +236,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                               fontSize: 14,
                               fontFamily: 'OpenSans',
                             ),
-                          ),
+                          ).tr(),
                         ),
                       ),
                     ],
@@ -268,7 +268,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     },
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(0),
-                      labelText: 'First Name',
+                      labelText: 'first_name'.tr(),
                       counterText: '',
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -305,7 +305,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     },
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(0),
-                      labelText: 'Last Name',
+                      labelText: 'last_name'.tr(),
                       counterText: '',
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -342,7 +342,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     },
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(0),
-                      labelText: 'Email',
+                      labelText: 'email'.tr(),
                       counterText: '',
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -394,7 +394,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                         fontSize: 18,
                         color: Colors.white,
                       ),
-                    ),
+                    ).tr(),
                   ),
                 )
               ],
@@ -484,7 +484,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                       fontWeight: FontWeight.w600,
                       fontFamily: 'OpenSans',
                     ),
-                  ),
+                  ).tr(),
                 ),
                 SizedBox(height: 5),
                 Divider(),
@@ -492,7 +492,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                   children: <Widget>[
                     ListTile(
                       leading: Icon(Icons.camera_alt_outlined),
-                      title: Text('Camera'),
+                      title: Text('camera').tr(),
                       onTap: () {
                         _imgFromCamera();
                         Navigator.of(context).pop();
@@ -500,7 +500,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     ),
                     ListTile(
                         leading: Icon(Icons.photo_library),
-                        title: Text('Photo Library'),
+                        title: Text('photo_lib').tr(),
                         onTap: () {
                           _imgFromGallery();
                           Navigator.of(context).pop();
