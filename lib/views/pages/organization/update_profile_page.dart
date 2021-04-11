@@ -197,17 +197,17 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      //color: Colors.white,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.white,
+          //backgroundColor: Colors.white,
           body: Form(
             key: _formKey,
             autovalidateMode: _validate,
             child: ListView(
               children: <Widget>[
                 Container(
-                  color: Colors.white,
+                  //color: Colors.white,
                   alignment: Alignment.bottomCenter,
                   child: Row(
                     children: <Widget>[
@@ -249,7 +249,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 //First Name
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[500],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -286,7 +286,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 //Last Name
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[500],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -323,7 +323,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 //Email
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.grey[200],
+                    color: Colors.grey[500],
                     borderRadius: BorderRadius.circular(10),
                   ),
                   margin: EdgeInsets.fromLTRB(20, 0, 20, 0),

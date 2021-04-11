@@ -57,7 +57,7 @@ class _MemberDetailState extends State<MemberDetail>
         ),
         body: CustomScrollView(slivers: [
           SliverAppBar(
-              backgroundColor: Colors.white,
+              //backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               expandedHeight: 250,
               flexibleSpace: FlexibleSpaceBar(
@@ -93,7 +93,7 @@ class _MemberDetailState extends State<MemberDetail>
                   color: UIData.secondaryColor,
                   child: TabBar(
                     labelPadding: EdgeInsets.all(0),
-                    indicatorColor: Colors.white,
+                    indicatorColor: UIData.secondaryColor,
                     controller: _tabController,
                     tabs: [
                       Tab(

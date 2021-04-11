@@ -178,7 +178,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
         title: const Text('Create Organization').tr(),
       ),
       body: Container(
-        color: Colors.white,
+        //color: Colors.white,
         child: SingleChildScrollView(
           padding: EdgeInsets.only(bottom: 10.0),
           scrollDirection: Axis.vertical,
@@ -186,7 +186,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
             children: <Widget>[
               addImage(),
               Text('Upload Organization Image',
-                  style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
+                  style: TextStyle(fontSize: 16,)).tr(),
               Form(
                 key: _formKey,
                 autovalidateMode: _validate,
@@ -213,7 +213,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                             textAlign: TextAlign.left,
                             textCapitalization: TextCapitalization.words,
                             textInputAction: TextInputAction.next,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderSide:
@@ -224,7 +224,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                                 color: UIData.secondaryColor,
                               ),
                               labelText: "Organization Name".tr(),
-                              labelStyle: TextStyle(color: Colors.black),
+                              labelStyle: TextStyle(),
                               alignLabelWithHint: true,
                               hintText: 'My Organization'.tr(),
                               hintStyle: TextStyle(color: Colors.grey),
@@ -245,7 +245,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                             validator: (value) =>
                                 Validator.validateOrgDesc(value),
                             textAlign: TextAlign.left,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderSide:
@@ -254,7 +254,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                               prefixIcon: Icon(Icons.note,
                                   color: UIData.secondaryColor),
                               labelText: "Organization Description".tr(),
-                              labelStyle: TextStyle(color: Colors.black),
+                              labelStyle: TextStyle(),
                               alignLabelWithHint: true,
                               hintText: 'My Description'.tr(),
                               hintStyle: TextStyle(color: Colors.grey),
@@ -275,7 +275,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                             validator: (value) =>
                                 Validator.validateOrgAttendeesDesc(value),
                             textAlign: TextAlign.left,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: new InputDecoration(
                               border: new OutlineInputBorder(
                                   borderRadius: new BorderRadius.circular(20.0),
@@ -284,10 +284,10 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                               prefixIcon: Icon(Icons.note,
                                   color: UIData.secondaryColor),
                               labelText: "Member Description".tr(),
-                              labelStyle: TextStyle(color: Colors.black),
+                              labelStyle: TextStyle(),
                               alignLabelWithHint: true,
                               hintText: 'Member Description'.tr(),
-                              hintStyle: TextStyle(color: Colors.grey),
+                              hintStyle: TextStyle(),
                             ),
                             controller: orgMemberDescController,
                           ),
@@ -297,7 +297,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                         ],
                       )),
                       Text('Do you want your organization to be public?',
-                          style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
+                          style: TextStyle(fontSize: 16, )).tr(),
                       RadioListTile(
                         groupValue: radioValue,
                         title: Text('Yes').tr(),
@@ -331,7 +331,7 @@ class _CreateOrganizationState extends State<CreateOrganization> { //defining th
                       ),
                       Text(
                           'Do you want others to be able to find your organization from the search page?',
-                          style: TextStyle(fontSize: 16, color: Colors.black)).tr(),
+                          style: TextStyle(fontSize: 16)).tr(),
                       RadioListTile(
                         activeColor: UIData.secondaryColor,
                         groupValue: radioValue1,

@@ -11,6 +11,7 @@ import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/views/pages/login_signup/login_page.dart';
 import 'package:talawa/views/pages/login_signup/set_url_page.dart';
 import 'package:talawa/views/pages/organization/profile_page.dart';
+import 'package:theme_provider/theme_provider.dart';
 import 'controllers/auth_controller.dart';
 import 'controllers/org_controller.dart';
 import 'views/pages/organization/create_organization.dart';
@@ -64,38 +65,54 @@ class MyApp extends StatelessWidget {
           FocusManager.instance.primaryFocus.unfocus();
         }
       },
-      child: MaterialApp(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        title: UIData.appName,
-        theme: ThemeData(
-          primaryColor: UIData.primaryColor,
-          fontFamily: UIData.quickFont,
-          primarySwatch: UIData.primaryColor,
+      child: ThemeProvider(
+        saveThemesOnChange: true,
+        loadThemeOnInit: true,
+        themes: [
+          AppTheme(
+            id: 'default_theme',
+            description: 'Default talawa theme',
+            data: ThemeData(
+                primaryColor: UIData.primaryColor,
+                fontFamily: UIData.quickFont,
+                primarySwatch: UIData.primaryColor,
+              ),
+          ),
+          AppTheme.dark(),
+        ],
+        child: ThemeConsumer(
+          child: Builder(
+            builder:(themeContext)=> MaterialApp(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              title: UIData.appName,
+              theme: ThemeProvider.themeOf(themeContext).data,
+            debugShowCheckedModeBanner: false,
+            showPerformanceOverlay: false,
+            onGenerateRoute: (RouteSettings settings) {
+              print(
+                    'build route for ${settings.name}'); //here we are building the routes for the app
+              var routes = <String, WidgetBuilder>{
+                  UIData.homeRoute: (BuildContext context) => HomePage(),
+                  UIData.loginPageRoute: (BuildContext context) => UrlPage(),
+                  UIData.createOrgPage: (BuildContext context) =>
+                      CreateOrganization(),
+                  UIData.joinOrganizationPage: (BuildContext context) =>
+                      JoinOrganization(),
+                  UIData.switchOrgPage: (BuildContext context) =>
+                      SwitchOrganization(),
+                  UIData.profilePage: (BuildContext context) => ProfilePage(),
+              };
+              WidgetBuilder builder = routes[settings.name];
+              return MaterialPageRoute(builder: (ctx) => builder(ctx));
+            },
+            home: userID == null
+                  ? UrlPage()
+                  : HomePage(), //checking weather the user is logged in or not
         ),
-        debugShowCheckedModeBanner: false,
-        showPerformanceOverlay: false,
-        onGenerateRoute: (RouteSettings settings) {
-          print(
-              'build route for ${settings.name}'); //here we are building the routes for the app
-          var routes = <String, WidgetBuilder>{
-            UIData.homeRoute: (BuildContext context) => HomePage(),
-            UIData.loginPageRoute: (BuildContext context) => UrlPage(),
-            UIData.createOrgPage: (BuildContext context) =>
-                CreateOrganization(),
-            UIData.joinOrganizationPage: (BuildContext context) =>
-                JoinOrganization(),
-            UIData.switchOrgPage: (BuildContext context) =>
-                SwitchOrganization(),
-            UIData.profilePage: (BuildContext context) => ProfilePage(),
-          };
-          WidgetBuilder builder = routes[settings.name];
-          return MaterialPageRoute(builder: (ctx) => builder(ctx));
-        },
-        home: userID == null
-            ? UrlPage()
-            : HomePage(), //checking weather the user is logged in or not
+          ),
+              ),
       ),
     );
   }

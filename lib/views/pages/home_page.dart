@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:theme_provider/theme_provider.dart';
 //importing the pages here
 import 'package:provider/provider.dart';
 import 'package:talawa/services/Queries.dart';
@@ -74,35 +75,35 @@ class _HomePageState extends State<HomePage> {
         //mentioning the screen home in the bottom bar
         icon: Icon(Icons.home),
         title: ("Home".tr()),
-        activeColorPrimary: Colors.white,
+        activeColorPrimary: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         //mentioning the screen chats in the bottom bar
         icon: Icon(Icons.chat),
         title: ("Chats".tr()),
-        activeColorPrimary: Colors.white,
+        activeColorPrimary: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         //mentioning the Events home in the bottom bar
         icon: Icon(Icons.calendar_today),
         title: ("Events".tr()),
-        activeColorPrimary: Colors.white,
+        activeColorPrimary: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         //mentioning the screen home in the bottom bar
         icon: Icon(Icons.group),
         title: ("Members".tr()),
-        activeColorPrimary: Colors.white,
+        activeColorPrimary: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         //mentioning the screen Profile in the bottom bar
         icon: Icon(Icons.folder),
         title: ("Profile".tr()),
-        activeColorPrimary: Colors.white,
+        activeColorPrimary: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
         inactiveColorPrimary: Colors.white,
       ),
     ];

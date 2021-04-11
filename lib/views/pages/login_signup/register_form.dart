@@ -396,6 +396,7 @@ class RegisterFormState extends State<RegisterForm> {
                             ))
                         : Text(
                             "sign_up".tr(),
+                            style: TextStyle(color: Colors.black)
                           ),
                     color: Colors.white,
                     onPressed: () async {

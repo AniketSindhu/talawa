@@ -50,6 +50,7 @@ dependencies:
   flutter_pw_validator: ^1.2.1
   data_connection_checker: ^0.3.4
   easy_localization: ^2.3.2
+  theme_provider: ^0.4.0
 
 
 

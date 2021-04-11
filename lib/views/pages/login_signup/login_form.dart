@@ -219,6 +219,7 @@ class LoginFormState extends State<LoginForm> {
                       ? const CircularProgressIndicator()
                       : Text(
                           "sign_in".tr(),
+                          style: TextStyle(color: Colors.black),
                         ),
                   color: Colors.white,
                   onPressed: () async {

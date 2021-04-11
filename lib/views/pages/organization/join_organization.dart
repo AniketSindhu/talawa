@@ -17,6 +17,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:talawa/views/pages/home_page.dart';
 import 'package:talawa/views/pages/organization/profile_page.dart';
 import 'package:talawa/views/widgets/loading.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import 'create_organization.dart';
 
@@ -182,14 +183,14 @@ class _JoinOrganizationState extends State<JoinOrganization> {
       body: organizationInfo.isEmpty
           ? Center(child: Loading(key: UniqueKey(),))
           : Container(
-              color: Color(0xffF3F6FF),
+              //color: Color(0xffF3F6FF),
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 16),
               child: Column(
                 children: <Widget>[
                   Text(
                     "Welcome, \nJoin or Create your organization to get started".tr(),
                     style: TextStyle(
-                        color: Colors.black,
+                        //color: Colors.black,
                         fontSize: 18,
                         fontStyle: FontStyle.normal),
                   ),
@@ -205,7 +206,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                     style: TextStyle(fontSize: 14),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(5),
-                        fillColor: Colors.white,
+                        fillColor: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
                         filled: true,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15.0),
@@ -226,7 +227,7 @@ class _JoinOrganizationState extends State<JoinOrganization> {
                   SizedBox(height: 15),
                   Expanded(
                       child: Container(
-                          color: Color(0xffF3F6FF),
+                          //color: Color(0xffF3F6FF),
                           child: searchController.text.isNotEmpty
                               ? ListView.builder(
                                   itemCount: filteredOrgInfo.length,

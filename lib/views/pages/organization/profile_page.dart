@@ -194,7 +194,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: Key('PROFILE_PAGE_SCAFFOLD'),
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         body: userDetails.isEmpty || isCreator == null
             ? Center(child: Loading(key: UniqueKey(),))
             : Column(

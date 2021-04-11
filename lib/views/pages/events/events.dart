@@ -13,6 +13,7 @@ import 'package:talawa/utils/apiFuctions.dart';
 import 'package:talawa/views/pages/events/addTaskDialog.dart';
 import 'package:talawa/views/pages/events/editEventDialog.dart';
 import 'package:talawa/views/widgets/loading.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 //pubspec packages are called here
 import 'package:timeline_list/timeline.dart';
@@ -230,7 +231,7 @@ class _EventsState extends State<Events> {
                     child: CustomScrollView(
                       slivers: [
                         SliverAppBar(
-                            backgroundColor: Colors.white,
+                            //backgroundColor: Colors.white,
                             automaticallyImplyLeading: false,
                             expandedHeight: 380,
                             flexibleSpace: FlexibleSpaceBar(
@@ -256,7 +257,7 @@ class _EventsState extends State<Events> {
                       getEvents();
                     },
                     child: Container(
-                      color: Colors.white,
+                      //color: Colors.white,
                       child: Stack(
                         children: [
                           Positioned.fill(
@@ -273,7 +274,7 @@ class _EventsState extends State<Events> {
                             builder:
                                 (BuildContext context, myscrollController) {
                               return Container(
-                                color: Colors.white,
+                                color: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
                                 child: Column(
                                   children: [
                                     ListView(
@@ -301,8 +302,7 @@ class _EventsState extends State<Events> {
                                                     child: Text(
                                                       'event_count',
                                                       style: TextStyle(
-                                                          color:
-                                                              Colors.black45),
+                                                          ),
                                                     ).tr(args: [
                                                       '${displayedEvents.length}'
                                                     ]),
@@ -357,7 +357,7 @@ class _EventsState extends State<Events> {
             thisMonthsEvents = eventsToDates(eventList, now);
           });
         },
-        calendarStyle: CalendarStyle(markersColor: Colors.black45),
+        calendarStyle: CalendarStyle(markersColor: UIData.secondaryColor),
         /*onDaySelected: (day, events) {
           String carouselDay = DateFormat.yMMMd('en_US').format(day);
           if (timer.isSameDay(day, now)) {
@@ -489,13 +489,13 @@ class _EventsState extends State<Events> {
             title: Text(
               displayedEvents[index]['title'],
               style: TextStyle(
-                color: Colors.black87,
+                //color: Colors.black87,
                 fontSize: 16,
               ),
             ),
             subtitle: Text(
               displayedEvents[index]['description'],
-              style: TextStyle(color: Colors.black54),
+              style: TextStyle(),
             ),
             trailing: popUpMenue(displayedEvents[index]),
           ),
@@ -529,7 +529,7 @@ class _EventsState extends State<Events> {
               leading: Icon(Icons.playlist_add_check, color: Colors.grey),
               title: Text(
                 'Register For Event',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(),
               ).tr(),
             )),
         PopupMenuItem<int>(
@@ -538,7 +538,7 @@ class _EventsState extends State<Events> {
                 leading: Icon(Icons.note_add, color: Colors.grey),
                 title: Text(
                   'Add a Task to this Event',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(),
                 ).tr())),
         PopupMenuItem<int>(
             value: 3,
@@ -546,7 +546,7 @@ class _EventsState extends State<Events> {
               leading: Icon(Icons.edit, color: Colors.grey),
               title: Text(
                 'Edit this event',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(),
               ).tr(),
             )),
         PopupMenuItem<int>(
@@ -555,7 +555,7 @@ class _EventsState extends State<Events> {
               leading: Icon(Icons.delete, color: Colors.grey),
               title: Text(
                 'Delete This Event',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(),
               ).tr(),
             ))
       ],

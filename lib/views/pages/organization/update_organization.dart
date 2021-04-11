@@ -143,7 +143,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
             title: const Text('Update Organization',
                 style: TextStyle(color: Colors.white)).tr()),
         body: Container(
-          color: Colors.white,
+          //color: Colors.white,
           child: radioValue == null
               ? Center(child: CircularProgressIndicator())
               : SingleChildScrollView(
@@ -165,7 +165,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                                 Validator.validateOrgName(value),
                             textAlign: TextAlign.left,
                             textCapitalization: TextCapitalization.words,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: FormFieldFormatting.formFieldFormatting(
                               hintText: "Organization Name".tr(),
                               labelText: 'My Organization'.tr(),
@@ -183,7 +183,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                             validator: (value) =>
                                 Validator.validateOrgDesc(value),
                             textAlign: TextAlign.left,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: FormFieldFormatting.formFieldFormatting(
                                 hintText: "My Description".tr(),
                                 labelText: "Organization Description".tr(),
@@ -201,7 +201,7 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                             validator: (value) =>
                                 Validator.validateOrgAttendeesDesc(value),
                             textAlign: TextAlign.left,
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(),
                             decoration: FormFieldFormatting.formFieldFormatting(
                                 hintText: "Member Description".tr(),
                                 labelText: "Member Description".tr(),
@@ -213,12 +213,12 @@ class _UpdateOrganizationState extends State<UpdateOrganization> {
                           ),
                           Text('Do you want your organization to be public?',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.black)).tr(),
+                                  TextStyle(fontSize: 16, )).tr(),
                           getRadioButton(radioValue,2,true),
                           Text(
                               'Do you want others to be able to find your organization from the search page?',
                               style:
-                                  TextStyle(fontSize: 16, color: Colors.black)).tr(),
+                                  TextStyle(fontSize: 16,)).tr(),
                           getRadioButton(radioValue1,2,false),
                           Container(
                             padding: EdgeInsets.symmetric(

@@ -384,7 +384,9 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                         children: <Widget>[
                           new Expanded(
                             child: ElevatedButton(
+                              
                               style: ElevatedButton.styleFrom(
+                                primary: UIData.primaryColor,
                                 padding: EdgeInsets.zero,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),
@@ -453,6 +455,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                           new Expanded(
                             child: new ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                primary: UIData.primaryColor,
                                 padding: EdgeInsets.zero,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),

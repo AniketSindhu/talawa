@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginPage> with TickerProviderStateMixin {
     return Scaffold(
         //resizeToAvoidBottomInset: false,
         key: _scaffoldkey,
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(

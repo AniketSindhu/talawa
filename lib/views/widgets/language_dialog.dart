@@ -21,7 +21,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Center(child: Text('Language Picker',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w600),)),
+              Center(child: Text('Language Picker',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),)),
               Expanded(
                 child: Center(
                   child: Padding(
@@ -41,7 +41,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
                         });
                       },
                       items: context.supportedLocales.map((e) => DropdownMenuItem(
-                        child: Text(e.toString(),style: TextStyle(color: Colors.black),),
+                        child: Text(e.toString(),style: TextStyle(),),
                         value: e,
                       )).toList(),
                       //dropdownColor: Colors.red,

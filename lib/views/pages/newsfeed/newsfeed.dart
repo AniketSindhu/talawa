@@ -15,6 +15,7 @@ import 'package:talawa/utils/timer.dart';
 import 'package:talawa/views/widgets/custom_appbar.dart';
 import 'package:talawa/views/widgets/loading.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 class NewsFeed extends StatefulWidget {
   NewsFeed({Key key}) : super(key: key);
@@ -146,7 +147,7 @@ class _NewsFeedState extends State<NewsFeed> {
                                         );
                                       },
                                       child: Card(
-                                        color: Colors.white,
+                                        color: ThemeProvider.themeOf(context).data.scaffoldBackgroundColor,
                                         child: Column(
                                           children: <Widget>[
                                             Container(

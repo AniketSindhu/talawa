@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:talawa/utils/uidata.dart';
 import 'package:talawa/views/widgets/language_dialog.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 class AppSettings extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class AppSettings extends StatefulWidget {
 }
 
 class _AppSettingsState extends State<AppSettings> {
-  bool dark = true;
+  bool dark = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,15 +32,13 @@ class _AppSettingsState extends State<AppSettings> {
         Divider(
           thickness: 1,
         ),
-        SwitchListTile(
+        ListTile(
           //leading: Icon(Icons.language, color: UIData.secondaryColor),
           title: Text("Dark Mode").tr(),
-          activeColor: UIData.secondaryColor,
-          value: dark,
-          onChanged: (val) {
-            dark = val;
-            setState(() {});
+          onTap: (){
+            showDialog(context: context, builder: (_) => ThemeConsumer(child: ThemeDialog()));
           },
+          leading: Icon(Icons.color_lens, color: UIData.secondaryColor),
         ),
         Divider(
           thickness: 1,
