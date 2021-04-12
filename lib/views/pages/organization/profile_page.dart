@@ -216,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: Text("Profile",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20.0,
+                                    //fontSize: 20.0,
                                     color: Colors.white)).tr(),
                             trailing: userDetails[0]['image'] != null
                                 ? CircleAvatar(

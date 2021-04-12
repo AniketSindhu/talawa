@@ -371,7 +371,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                 FadeTransition(
                   //changed opacity animation to match login button animation
                   opacity: loginAnimation,
-                  child: Container(
+                  child: saveMsg == "URL SAVED!"?Container(
                     //padding: EdgeInsets.all(100.0),
                     child: new Container(
                       width: _media != null
@@ -437,12 +437,12 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                         ],
                       ),
                     ),
-                  ),
+                  ):Container(),
                 ),
                 SizedBox(height: 5),
                 FadeTransition(
                   opacity: loginAnimation,
-                  child: Container(
+                  child: saveMsg == "URL SAVED!"?Container(
                     child: new Container(
                       width: _media != null
                           ? _media.size.width
@@ -505,7 +505,7 @@ class _UrlPageState extends State<UrlPage> with TickerProviderStateMixin<UrlPage
                         ],
                       ),
                     ),
-                  ),
+                  ):Container(),
                 ),
                 SizedBox(height:20),
                 Center(

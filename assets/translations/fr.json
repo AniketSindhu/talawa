@@ -179,5 +179,6 @@
   "Attendees Description must not be left blank.": "La description des participants ne doit pas être laissée vide.",
   "Attendees Description must not exceed 5000 letters": "La description des participants ne doit pas dépasser 5000 lettres",
   "Dark Mode":"Mode sombre",
-  "Change font size":"Changer la taille de la police"
+  "Change font size":"Changer la taille de la police",
+  "Large font":"Grande police"
 }

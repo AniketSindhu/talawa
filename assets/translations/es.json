@@ -179,5 +179,6 @@
   "Attendees Description must not be left blank.": "La descripción de los asistentes no debe dejarse en blanco.",
   "Attendees Description must not exceed 5000 letters": "La descripción de los asistentes no debe exceder las 5000 letras",
   "Dark Mode":"Modo oscuro",
-  "Change font size":"Cambia tamaño de fuente"
+  "Change font size":"Cambia tamaño de fuente",
+  "Large font":"Letra grande"
 }

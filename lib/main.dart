@@ -78,7 +78,28 @@ class MyApp extends StatelessWidget {
                 primarySwatch: UIData.primaryColor,
               ),
           ),
-          AppTheme.dark(),
+          AppTheme.dark(id:'dark_theme'),
+          AppTheme(
+            id: 'default_theme_large_font',
+            description: 'Large font',
+            data: ThemeData(
+                primaryColor: UIData.primaryColor,
+                fontFamily: UIData.quickFont,
+                primarySwatch: UIData.primaryColor,
+                textTheme: Theme.of(context).textTheme.apply(
+                  fontSizeFactor:1.5,
+                )
+              ),
+          ),
+          AppTheme(
+            id: 'dark_theme_large_font',
+            description: 'Large font dark',
+            data: AppTheme.dark(id:'dark_theme').data.copyWith(
+              textTheme:Theme.of(context).textTheme.merge(AppTheme.dark(id:'dark_theme').data.textTheme).apply(
+                fontSizeFactor: 1.5
+              )
+            )
+          ),
         ],
         child: ThemeConsumer(
           child: Builder(
